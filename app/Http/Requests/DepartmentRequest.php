@@ -13,7 +13,7 @@ class DepartmentRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class DepartmentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            // validation rules for department creation.
+            'dept_name' => 'required|string',
+            'dept_college' => 'required|string',
         ];
     }
 }

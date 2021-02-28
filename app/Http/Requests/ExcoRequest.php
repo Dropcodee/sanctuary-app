@@ -13,7 +13,7 @@ class ExcoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class ExcoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'exco_name' => 'required',
+            'exco_mail' => 'required|email|unique:excos,exco_email',
+            'exco_position' => 'required',
+            'dept_college' => 'required',
+            'exco_leadership' => 'required'
         ];
     }
 }
